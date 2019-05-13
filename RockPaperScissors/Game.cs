@@ -21,14 +21,29 @@ namespace RockPaperScissors
         {
             Player player = new Player();
             CompPlayer compPlayer = new CompPlayer();
-
+            string userInput = "";
             Console.WriteLine("Enter r for Rock, p for Paper and s for Scissors");
 
 
             while (playerScore < 5 && compScore < 5)
             {
-                
-                string userInput = Console.ReadLine().ToLower();
+                //Ugly hack for validation - research and update
+                Boolean validInput = false;
+                while (!validInput)
+                {
+
+                    userInput = Console.ReadLine().ToLower();
+                    if (userInput == "r" || userInput == "p" || userInput == "s")
+                    {
+                        validInput = true;
+                    }
+                    
+                    else
+                    {
+                        validInput = false;
+                        Console.WriteLine("Invalid input! Please enter 'r', 'p' or 's'.");
+                    }
+                }
 
                 string compChoice = compPlayer.GenerateChoice();
 
