@@ -24,10 +24,10 @@ namespace RockPaperScissors
             string userInput = "";
             Console.WriteLine("Enter r for Rock, p for Paper and s for Scissors");
 
-
+            //Loop until one player reaches a score of 5
             while (playerScore < 5 && compScore < 5)
             {
-                //Ugly hack for validation - research and update
+                //Loop to validate user input
                 Boolean validInput = false;
                 while (!validInput)
                 {
@@ -57,6 +57,7 @@ namespace RockPaperScissors
 
             }
 
+            //End game when either payer reaches 5
             if (playerScore == 5)
             {
                 Console.WriteLine("Player is the winner!");
@@ -68,30 +69,7 @@ namespace RockPaperScissors
 
         }
 
-        public string GenerateCompChoice()
-        {
-            string compChoice = "";
-            Random rnd = new Random();
-            int compInput = rnd.Next(1, 4);
-
-            switch (compInput)
-            {
-                case 1:
-                    compChoice = "r";
-                    break;
-                case 2:
-                    compChoice = "p";
-                    break;
-                case 3:
-                    compChoice = "s";
-                    break;
-                default:
-                    break;
-            }
-
-
-            return compChoice;
-        }
+        //Compare input for each round and update score accordingly
 
         public string CompareAnswers(string userInput, string compChoice)
         {

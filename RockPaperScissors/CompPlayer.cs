@@ -8,7 +8,7 @@ namespace RockPaperScissors
 {
     class CompPlayer:Player
     {
-
+        //function to generate random choice for computer
         public string GenerateChoice()
         {
             string compChoice = "";
